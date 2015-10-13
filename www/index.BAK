@@ -16,36 +16,52 @@
         var e_late = 0;     // APIから取得する為替レート
         var url = "";       // API呼び出しのURL
 
-        function getExchageRate(beforeCurrency){
-            console.log("変換前の金額は"+(document.getElementById("my-input").value)+beforeCurrency+"だよー");
+        function getExchageRateD2Y(){
+            console.log("USDからJPYへ変換するよー");
+            console.log("変換前の金額は"+(document.getElementById("my-input").value)+"だよー");
 
             // 変換前の金額
             b_amount = document.getElementById("my-input").value;
 
-            if (beforeCurrency == "usd") {
-                // USDからJPYへ変換
-                // 変換前はUSD
-                b_unit = "ドル";    
-                // 変換後はJPY
-                a_unit = "円";
-                
-            } else if (beforeCurrency == "jpy") {
-                // JPYからUSDへ変換   
-                // 変換前はJPY
-                b_unit = "円";    
-                // 変換後はUSD
-                a_unit = "ドル";
-    
-            }
-            
+            // 変換前はUSD
+            b_unit = "ドル";
+
+            // 変換後はJPY
+            a_unit = "円";
+
             // 為替レート取得APIのURLを設定
             if (_isDebugger()){
                 console.log("デバッガーから実行");
                 url = "";
             } else {
-                url = "http://api.aoikujira.com/kawase/json/"+beforeCurrency;
+                url = "http://api.aoikujira.com/kawase/json/usd";
             }
+            
+            // 為替レート取得APIを呼出し
+            $.getJSON(url, parseJson);
+        }
 
+        function getExchageRateY2D(){
+            console.log("JPYからUSDへ変換するよー");
+            console.log("変換前の金額は"+(document.getElementById("my-input").value)+"だよー");
+            
+            // 変換前の金額
+            b_amount = document.getElementById("my-input").value;
+
+            // 変換前はJPY
+            b_unit = "円";
+
+            // 変換後はUSD
+            a_unit = "ドル";
+
+            // 為替レート取得APIのURLを設定
+            if (_isDebugger()){
+                console.log("デバッガーから実行");
+                url = "";
+            } else {
+                url = "http://api.aoikujira.com/kawase/json/jpy";
+            }
+            
             // 為替レート取得APIを呼出し
             $.getJSON(url, parseJson);
         }
