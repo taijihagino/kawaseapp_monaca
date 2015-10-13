@@ -1,0 +1,20 @@
+{
+    "plugins": [
+        "mobi.monaca.plugins.Monaca",
+        "org.apache.cordova.splashscreen"
+    ],
+    "framework_version": "3.5",
+    "xcode_version": "6",
+    "cordova_version": "4.1",
+    "plugin_settings": [],
+    "title-ja": "為替レートアプリ",
+    "title-en": "",
+    "description-ja": "2015年10月のハンズオンワークショップ用",
+    "description-en": "",
+    "category": "User Template",
+    "platform": [
+        "android",
+        "ios"
+    ],
+    "name": "generated-1444728330-561758507e2193b769cacd80"
+}
